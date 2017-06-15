@@ -22,10 +22,13 @@ class Route
     /**
      * Constructs a route (value object).
      *
-     * @param string $httpMethod
-     * @param mixed  $handler
-     * @param string $regex
-     * @param array  $variables
+     * @param string $name       Route name
+     * @param string $httpMethod Route HTTP method
+     * @param mixed  $handler    Route handler
+     * @param string $regex      Route regex
+     * @param array  $variables  Route variables
+     *
+     * @return void
      */
     public function __construct($name, $httpMethod, $handler, $regex, $variables)
     {
@@ -39,7 +42,7 @@ class Route
     /**
      * Tests whether this route matches the given string.
      *
-     * @param string $str
+     * @param string $str String to match on
      *
      * @return bool
      */

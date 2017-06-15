@@ -2,6 +2,8 @@
 
 namespace Rapture\Router;
 
+use Rapture\Router\Definition\RouterInterface;
+
 /**
  * Routes Collector
  *
@@ -11,7 +13,7 @@ namespace Rapture\Router;
  * @author  Iulian N. <rapture@iuliann.ro>
  * @license LICENSE MIT
  */
-class Router
+class Router implements RouterInterface
 {
     const FOUND       = 200;
     const NOT_FOUND   = 404;
@@ -75,8 +77,13 @@ class Router
      */
     public function addRoutes(array $routes)
     {
-        foreach ($routes as $route) {
-            $this->addRoute($route[0], $route[1], $route[2], $route[3]);
+        foreach ($routes as $group => $route) {
+            if (is_string($group)) {
+                $this->addGroup($group, $route);
+            }
+            else {
+                $this->addRoute($route[0], $route[1], $route[2], $route[3]);
+            }
         }
 
         return $this;

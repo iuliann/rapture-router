@@ -70,7 +70,7 @@ class Generator
     public function getData()
     {
         if (empty($this->methodToRegexToRoutesMap)) {
-            return [$this->staticRoutes, []];
+            return [$this->staticRoutes, [], $this->names];
         }
 
         return [$this->staticRoutes, $this->generateVariableRouteData(), $this->names];
