@@ -15,7 +15,7 @@ It implements the [`GroupCountBased`](http://nikic.github.io/2014/02/18/Fast-req
 ## Install
 
 ```
-composer require iuliann/rapture-router
+composer require mrjulio/rapture-router
 ```
 
 ## Quick start
